@@ -3,6 +3,7 @@ package view;
 import model.Translator;
 import view.UI_AdicionarPalavra;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class MenuTranslator
@@ -39,12 +40,12 @@ public class MenuTranslator
                     break;
                 case 3:
                     UIContarPalavras ui = new UIContarPalavras();
-                    System.out.println(ui.contarPalavras());
+                    ui.run ();
 
                     break;
                 case 4:
                     UIMostrarPalavras ui1 = new UIMostrarPalavras();
-                    System.out.println(ui1.mostrarPalavras());
+                    ui1.run ();
                     break;
             }
         }

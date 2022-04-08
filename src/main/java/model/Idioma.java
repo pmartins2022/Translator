@@ -10,7 +10,11 @@ public class Idioma {
 
     @Override
     public String toString() {
+<<<<<<< HEAD
         return nome;
+=======
+        return "" + nome;
+>>>>>>> 3bfedc58b6479e872cb6c6803d5b2c10da92ed34
     }
 
     @Override

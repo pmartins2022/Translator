@@ -12,7 +12,7 @@ public class ControllerMostrarPalavras
         translator = Translator.getInstance();
     }
 
-    public String mostrarPalavras()
+    public String mostrarPalavras() throws SQLException
     {
         try
         {
