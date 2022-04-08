@@ -1,6 +1,6 @@
 package view;
 
-import Controller.ControllerCriarIdioma;
+import controller.ControllerCriarIdioma;
 import model.Idioma;
 import model.Translator;
 

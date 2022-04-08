@@ -30,7 +30,8 @@ public class MenuTranslator
 
                     break;
                 case 1:
-
+                    UICriarIdioma i = new UICriarIdioma();
+                    i.run();
                     break;
                 case 2:
                     UI_AdicionarPalavra u = new UI_AdicionarPalavra();

@@ -20,15 +20,14 @@ public class Translator
     }
 
     public Idioma criarIdioma (String nome){
-        Idioma idioma = new Idioma(nome);
-        return idioma;
+        return new Idioma(nome);
     }
 
     public boolean validaIdioma (Idioma idioma){
         boolean flag = false;
         try
         {
-            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarLingua(idioma.getIdioma());
+            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarLingua(idioma);
 
             flag = true;
         }
@@ -43,9 +42,18 @@ public class Translator
 
     public boolean guardaIdioma (Idioma idioma){
         boolean flag = false;
-        if(validaIdioma(idioma)){
-
-
+        if(validaIdioma(idioma))
+        {
+            try
+            {
+                ResultSet rs = Translator.getInstance().getConexaoBD().adicionarLingua(idioma);
+                return true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Erro a guardar idioma: "+e.getMessage());
+                return false;
+            }
         }
 
         return flag;
