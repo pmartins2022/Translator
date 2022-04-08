@@ -1,6 +1,5 @@
 package view;
 import controller.ControllerMostrarPalavras;
-import java.sql.SQLException;
 
 public class UIMostrarPalavras
 {
@@ -11,7 +10,7 @@ public class UIMostrarPalavras
         _controller = new ControllerMostrarPalavras ();
     }
 
-    public String mostrarPalavras() throws SQLException
+    public String mostrarPalavras()
     {
         return _controller.mostrarPalavras();
     }
