@@ -10,7 +10,9 @@ public class MenuTranslator
     {
         Scanner sc = new Scanner(System.in);
 
-        while (true)
+        int esc = -1;
+
+        while (esc != 0)
         {
             System.out.println("Operacoes:");
             System.out.println("[0] SAIR");
@@ -19,7 +21,7 @@ public class MenuTranslator
             System.out.println("[3] UC3");
             System.out.println("[4] UC4");
 
-            int esc = sc.nextInt();
+            esc = sc.nextInt();
 
             switch (esc)
             {
