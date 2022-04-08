@@ -127,14 +127,14 @@ public class DBConnectionHandlerProj
     public ResultSet pesquisarLingua(Idioma idioma) throws SQLException
     {
         PreparedStatement ps = connection.prepareStatement("SELECT * FROM LINGUA WHERE DENOMINACAO = '?'");
-        ps.setString(0, idioma.getNome());
+        ps.setString(0, idioma.toString());
         return ps.executeQuery();
     }
 
     public ResultSet adicionarLingua(Idioma idioma) throws SQLException
     {
         PreparedStatement ps = connection.prepareStatement("INSERT INTO LINGUA '?'");
-        ps.setString(0, idioma.getNome());
+        ps.setString(0, idioma.toString());
         return ps.executeQuery();
     }
 }

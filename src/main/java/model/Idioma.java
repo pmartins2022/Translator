@@ -3,22 +3,23 @@ package model;
 public class Idioma {
 
     String nome;
+    Idioma idioma;
 
     public Idioma (String nome){
         this.nome=nome;
     }
 
-    public Idioma getNome() {
-        return nome;
+    public Idioma getIdioma() {
+        return idioma;
     }
 
-    public void setNome(String nome) {
+    public void setIdioma(String nome) {
         this.nome = nome;
     }
 
     @Override
     public String toString() {
-        return "model.Idioma: " + nome;
+        return "" + idioma;
     }
 
     @Override
@@ -26,6 +27,6 @@ public class Idioma {
         if (this == o) return true;
         if (!(o instanceof Idioma)) return false;
         Idioma idioma = (Idioma) o;
-        return getNome().equals(idioma.getNome());
+        return getIdioma().equals(idioma.getIdioma());
     }
 }

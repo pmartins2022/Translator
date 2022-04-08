@@ -28,7 +28,7 @@ public class Translator
         boolean flag = false;
         try
         {
-            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarLingua(idioma.getNome());
+            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarLingua(idioma.getIdioma());
 
             flag = true;
         }
