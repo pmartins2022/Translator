@@ -2,16 +2,7 @@ package controller;
 
 import model.Translator;
 
-public class ControllerContarPalavras
+public class ControllerMostarPalavras
 {
-    Translator _translator;
-    public ControllerContarPalavras (Translator _translator)
-    {
-        this._translator=_translator;
-    }
 
-    public int contarPalavras ()
-    {
-        return _translator.contarPalavras();
-    }
 }
