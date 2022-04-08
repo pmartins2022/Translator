@@ -8,7 +8,7 @@ public class Idioma {
         this.nome=nome;
     }
 
-    public String getNome() {
+    public Idioma getNome() {
         return nome;
     }
 
