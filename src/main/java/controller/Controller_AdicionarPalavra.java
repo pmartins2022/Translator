@@ -18,7 +18,7 @@ public class Controller_AdicionarPalavra
 
     public boolean adicionarPalavraPT(String s)
     {
-        return false;
+        return Translator.getInstance().adicionarPalavraPT(s);
     }
 
     public ResultSet getLinguagens()

@@ -2,6 +2,7 @@ import model.DBConnectionHandlerProj;
 import model.Translator;
 import view.MenuTranslator;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MainTranslator
@@ -26,6 +27,7 @@ public class MainTranslator
             conexaoBD.openConnection();
 
             System.out.println("\t... Ligação obtida.");
+
 
             return conexaoBD;
 

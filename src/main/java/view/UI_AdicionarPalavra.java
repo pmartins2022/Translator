@@ -31,24 +31,46 @@ public class UI_AdicionarPalavra
         {
             System.out.println("Palavra nao existe na BD");
 
-
-
-            if (contr.countLinguagens() == 1)
+            if (contr.adicionarPalavraPT(palavra))
             {
-                System.out.println("Nao existem mais linguagens para traduzir.");
+                System.out.println("Palavra adicionada na BD");
             }
             else
             {
+                System.out.println("Problema a adicionar a palavra na BD");
+                return;
+            }
+
+
+            int linguagens = contr.countLinguagens();
+
+            if (linguagens == 1)
+            {
+                System.out.println("Nao existem mais linguagens para traduzir.");
+                return;
+            }
+            else
+            {
+                System.out.println("Total linguagens: "+linguagens);
                 try
                 {
                     int palavraID = contr.pesquisarPalavraID(palavra);
 
+                    if (palavraID < 0)
+                    {
+                        System.out.println("Nao encontrou palavra na tabela");
+                        return;
+                    }
+
                     ResultSet rs = contr.getLinguagens();
+
+                    //passar pelo PT
+                    rs.next();
 
                     while (rs.next())
                     {
-                        int lingID = rs.getInt(0);
-                        System.out.println("Escrever traducao para linguagem " + rs.getString(1));
+                        int lingID = rs.getInt(1);
+                        System.out.println("Escrever traducao para linguagem " + rs.getString(2));
                         String trad = sc.nextLine();
 
                         if (contr.adicionarPalavraTraduzida(palavraID,lingID,trad))
