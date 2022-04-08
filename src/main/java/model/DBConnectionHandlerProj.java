@@ -124,4 +124,29 @@ public class DBConnectionHandlerProj
         return ps.executeQuery("INSERT INTO PALAVRA (DENOMINACAO, LINGUA) VALUES ('"+s+"',1");
     }
 
+    public ResultSet pesquisarLingua(Idioma idioma) throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM LINGUA WHERE DENOMINACAO = '?'");
+        ps.setString(0, idioma.toString());
+        return ps.executeQuery();
+    }
+
+    public ResultSet adicionarLingua(Idioma idioma) throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO LINGUA '?'");
+        ps.setString(0, idioma.toString());
+        return ps.executeQuery();
+    }
+
+    public ResultSet contarPalavras () throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("SELECT count(id) from palavra");
+        return ps.executeQuery();
+    }
+
+    public ResultSet mostrarPalavras () throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("SELECT * from traducao");
+        return ps.executeQuery();
+    }
 }
