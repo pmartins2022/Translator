@@ -87,11 +87,11 @@ public class Translator
 
     public String mostrarPalavras () throws SQLException
     {
-        return conexaoBD.mostrarPalavras ();
+        return conexaoBD.mostrarPalavras ().getString (3);
     }
 
     public int contarPalavras () throws SQLException
     {
-        return conexaoBD.contarPalavras ();
+        return conexaoBD.contarPalavras ().getInt (0);
     }
 }

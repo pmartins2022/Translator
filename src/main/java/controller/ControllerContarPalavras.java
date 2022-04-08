@@ -2,6 +2,8 @@ package controller;
 
 import model.Translator;
 
+import java.sql.SQLException;
+
 public class ControllerContarPalavras
 {
     Translator _translator;
@@ -10,7 +12,7 @@ public class ControllerContarPalavras
         this._translator=_translator;
     }
 
-    public int contarPalavras ()
+    public int contarPalavras () throws SQLException
     {
         return _translator.contarPalavras();
     }
