@@ -1,25 +1,20 @@
 package view;
-
 import controller.ControllerContarPalavras;
-import model.Translator;
+import java.sql.SQLException;
 
-import java.util.Scanner;
 
 public class UIContarPalavras
 {
-    Translator _translator;
-    Scanner lerTeclado = new Scanner (System.in);
     ControllerContarPalavras _controller;
 
-    public UIContarPalavras (Translator _translator)
+    public UIContarPalavras ()
     {
-        this._translator = _translator;
         _controller = new ControllerContarPalavras ();
     }
 
-//    public int contarPalavras()
-//    {
-//        return _controller.contarPalavras();
-//    }
+    public int contarPalavras() throws SQLException
+    {
+        return _controller.contarPalavras();
+    }
 
 }

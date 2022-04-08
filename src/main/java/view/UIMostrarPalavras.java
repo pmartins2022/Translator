@@ -1,25 +1,19 @@
 package view;
-
 import controller.ControllerMostrarPalavras;
-import model.Translator;
-
-import java.util.Scanner;
+import java.sql.SQLException;
 
 public class UIMostrarPalavras
 {
-    Translator _translator;
-    Scanner lerTeclado = new Scanner (System.in);
     ControllerMostrarPalavras _controller;
 
-    public UIMostrarPalavras (Translator _translator)
+    public UIMostrarPalavras ()
     {
-        this._translator = _translator;
         _controller = new ControllerMostrarPalavras ();
     }
 
-//    public int mostrarPalavras()
-//    {
-//        return _controller.mostrarPalavras();
-//    }
+    public String mostrarPalavras() throws SQLException
+    {
+        return _controller.mostrarPalavras();
+    }
 
 }
