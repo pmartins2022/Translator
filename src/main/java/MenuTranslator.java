@@ -1,3 +1,5 @@
+import view.UI_AdicionarPalavra;
+
 import java.util.Scanner;
 
 public class MenuTranslator
@@ -24,6 +26,8 @@ public class MenuTranslator
                 case 1:
                     break;
                 case 2:
+                    UI_AdicionarPalavra u = new UI_AdicionarPalavra();
+                    u.run();
                     break;
                 case 3:
                     break;

@@ -2,9 +2,14 @@ package model;
 
 public class Translator
 {
+    public static Translator instance = null;
+
     public Translator()
     {
-
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     public Idioma criarIdioma (String nome){
@@ -26,5 +31,10 @@ public class Translator
         }
 
         return flag;
+    }
+
+    public Translator getInstance()
+    {
+        return instance;
     }
 }
