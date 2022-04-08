@@ -14,12 +14,12 @@ public class UIContarPalavras
     public UIContarPalavras (Translator _translator)
     {
         this._translator = _translator;
-        _controller = new ControllerContarPalavras (_translator);
+        _controller = new ControllerContarPalavras ();
     }
 
-    public int contarPalavras()
-    {
-        return _controller.contarPalavras();
-    }
+//    public int contarPalavras()
+//    {
+//        return _controller.contarPalavras();
+//    }
 
 }

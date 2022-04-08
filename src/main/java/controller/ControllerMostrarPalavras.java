@@ -4,10 +4,10 @@ package controller;
 
 public class ControllerMostrarPalavras
 {
-    Translator _translator;
-    public ControllerMostrarPalavras (Translator _translator)
+    Translator translator;
+    public ControllerMostrarPalavras ()
     {
-        this._translator=_translator;
+        translator = Translator.getInstance();
     }
 
 }

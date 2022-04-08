@@ -14,12 +14,12 @@ public class UIMostrarPalavras
     public UIMostrarPalavras (Translator _translator)
     {
         this._translator = _translator;
-        _controller = new ControllerMostrarPalavras (_translator);
+        _controller = new ControllerMostrarPalavras ();
     }
 
-    public int mostrarPalavras()
-    {
-        return _controller.mostrarPalavras();
-    }
+//    public int mostrarPalavras()
+//    {
+//        return _controller.mostrarPalavras();
+//    }
 
 }

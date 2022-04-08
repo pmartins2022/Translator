@@ -73,4 +73,77 @@ public class Translator
             return false;
         }
     }
+
+    public int getPalavraID(String palavra)
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarPalavraID(palavra);
+
+            rs.next();
+
+            return rs.getInt(0);
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return -1;
+        }
+    }
+
+    public ResultSet getLinguagens()
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().getLinguagens();
+            return rs;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return null;
+        }
+    }
+
+    public int countLinguagens()
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().getLinguagens();
+            rs.next();
+            return rs.getInt(0);
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return 0;
+        }
+    }
+
+
+    public boolean adicionarPalavraTraduzida(int pid, int lid, String pl)
+    {
+        try
+        {
+            Translator.getInstance().getConexaoBD().adicionarPalavraTraduzida(pid, lid, pl);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            return false;
+        }
+    }
+
+    public boolean adicionarPalavraPT(String pt)
+    {
+        try
+        {
+            Translator.getInstance().getConexaoBD().adicionarPalavraPT(pt);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            return false;
+        }
+    }
 }
