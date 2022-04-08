@@ -12,8 +12,19 @@ public class Translator
         return idioma;
     }
 
+    public boolean validaIdioma (Idioma idioma){
+        boolean flag = false;
+
+
+        return flag;
+    }
+
     public boolean guardaIdioma (Idioma idioma){
         boolean flag = false;
-        
+        if(validaIdioma(idioma)){
+
+        }
+
+        return flag;
     }
 }
