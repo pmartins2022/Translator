@@ -21,7 +21,7 @@ public class UI_AdicionarPalavra
 
         String palavra = sc.nextLine();
 
-        if (contr.pesquisarPalavraBD(palavra))
+        if (contr.pesquisarPalavra(palavra))
         {
             System.out.println("Essa palavra ja existe na BD");
         }

@@ -84,7 +84,7 @@ public class DBConnectionHandlerProj
 
     public ResultSet pesquisarPalavra(String pl) throws SQLException
     {
-        PreparedStatement ps = connection.prepareStatement("SELECT * FROM PALAVRA WHERE DENOMINACAO = ?");
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM PALAVRA WHERE DENOMINACAO = '?'");
         ps.setString(0,pl);
         return ps.executeQuery();
     }
