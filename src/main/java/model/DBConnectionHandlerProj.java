@@ -141,7 +141,7 @@ public class DBConnectionHandlerProj
 
     public ResultSet contarPalavras () throws SQLException
     {
-        PreparedStatement ps = connection.prepareStatement("SELECT count(id) from palavra");
+        PreparedStatement ps = connection.prepareStatement("SELECT count(id_palavra) from palavra");
         return ps.executeQuery();
     }
 

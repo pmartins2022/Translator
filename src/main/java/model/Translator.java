@@ -160,11 +160,15 @@ public class Translator
     }
     public String mostrarPalavras () throws SQLException
     {
-        return conexaoBD.mostrarPalavras ().getString (3);
+        ResultSet r = conexaoBD.mostrarPalavras ();
+        r.next();
+        return r.getString (3);
     }
 
     public int contarPalavras () throws SQLException
     {
-        return conexaoBD.contarPalavras ().getInt (1);
+        ResultSet r = conexaoBD.contarPalavras ();
+        r.next();
+        return r.getInt (1);
     }
 }

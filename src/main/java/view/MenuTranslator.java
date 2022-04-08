@@ -37,8 +37,13 @@ public class MenuTranslator
                     u.run();
                     break;
                 case 3:
+                    UIContarPalavras ui = new UIContarPalavras();
+                    System.out.println(ui.contarPalavras());
+
                     break;
                 case 4:
+                    UIMostrarPalavras ui1 = new UIMostrarPalavras();
+                    System.out.println(ui1.mostrarPalavras());
                     break;
             }
         }
