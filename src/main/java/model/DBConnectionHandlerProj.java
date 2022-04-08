@@ -139,13 +139,13 @@ public class DBConnectionHandlerProj
         return ps.executeQuery();
     }
 
-    public ResultSet contarPalavras () throws SQLException
+    public ResultSet contarPalavras ()
     {
         PreparedStatement ps = connection.prepareStatement("SELECT count(id) from palavra");
         return ps.executeQuery();
     }
 
-    public ResultSet mostrarPalavras () throws SQLException
+    public ResultSet mostrarPalavras ()
     {
         PreparedStatement ps = connection.prepareStatement("SELECT * from traducao");
         return ps.executeQuery();
