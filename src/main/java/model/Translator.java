@@ -73,4 +73,14 @@ public class Translator
             return false;
         }
     }
+
+    public String mostrarPalavras () throws SQLException
+    {
+        return conexaoBD.mostrarPalavras ();
+    }
+
+    public int contarPalavras () throws SQLException
+    {
+        return conexaoBD.contarPalavras ();
+    }
 }

@@ -10,4 +10,9 @@ public class ControllerMostrarPalavras
         this._translator=_translator;
     }
 
+    public String mostrarPalavras()
+    {
+        return _translator.mostrarPalavras();
+    }
+
 }
