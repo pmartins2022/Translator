@@ -1,6 +1,6 @@
 package controller;
 
-        import model.Translator;
+import model.Translator;
 
 public class ControllerMostrarPalavras
 {

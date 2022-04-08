@@ -124,4 +124,16 @@ public class DBConnectionHandlerProj
         Statement s = connection.createStatement();
         return s.executeQuery("SELECT p1.codProjeto, (SELECT p2.id FROM projetoEmpregado p2 WHERE p2.nHoras = (SELECT MAX(p3.nHoras) FROM projetoEmpregado p3 WHERE p3.codProjeto = p1.codProjeto)), (SELECT p2.id FROM projetoEmpregado p2 WHERE p2.nHoras = (SELECT MIN(p3.nHoras) FROM projetoEmpregado p3 WHERE p3.codProjeto = p1.codProjeto)), MAX((SELECT empregado.salarioHora FROM empregado WHERE empregado.id = p1.id)*p1.nHoras), MIN((SELECT empregado.salarioHora FROM empregado WHERE empregado.id = p1.id)*p1.nHoras) FROM projetoEmpregado p1 GROUP BY p1.codProjeto");
     }
+
+    public ResultSet contarPalavras() throws SQLException
+    {
+        Statement s = connection.createStatement ();
+        return s.executeQuery ("select count(id) from palavra");
+    }
+
+    public ResultSet mostrarPalavras() throws SQLException
+    {
+        Statement s = connection.createStatement ();
+        return s.executeQuery ("select * from traducao");
+    }
 }
