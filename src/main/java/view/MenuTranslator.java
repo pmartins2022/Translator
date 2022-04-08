@@ -1,5 +1,6 @@
 package view;
 
+import model.Translator;
 import view.UI_AdicionarPalavra;
 
 import java.util.Scanner;
@@ -41,5 +42,7 @@ public class MenuTranslator
                     break;
             }
         }
+
+        Translator.getInstance().closeDBConnection();
     }
 }
