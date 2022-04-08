@@ -157,12 +157,12 @@ public class Translator
             return false;
         }
     }
-    public String mostrarPalavras ()
+    public String mostrarPalavras () throws SQLException
     {
         return conexaoBD.mostrarPalavras ().getString (3);
     }
 
-    public int contarPalavras ()
+    public int contarPalavras () throws SQLException
     {
         return conexaoBD.contarPalavras ().getInt (1);
     }
