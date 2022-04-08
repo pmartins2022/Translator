@@ -1,5 +1,6 @@
 package view;
 
+import model.Translator;
 import view.UI_AdicionarPalavra;
 
 import java.util.Scanner;
@@ -18,16 +19,18 @@ public class MenuTranslator
             System.out.println("[0] SAIR");
             System.out.println("[1] Configurar idiomas da tabela");
             System.out.println("[2] Adicionar nova palavra");
-            System.out.println("[3] UC3");
-            System.out.println("[4] UC4");
+            System.out.println("[3] Quantas palavras Portuguesas têm tradução");
+            System.out.println("[4] Listar todas as palavras portuguesas e respetivas traduções");
 
             esc = sc.nextInt();
 
             switch (esc)
             {
                 case 0:
+
                     break;
                 case 1:
+
                     break;
                 case 2:
                     UI_AdicionarPalavra u = new UI_AdicionarPalavra();
@@ -39,5 +42,7 @@ public class MenuTranslator
                     break;
             }
         }
+
+        Translator.getInstance().closeDBConnection();
     }
 }

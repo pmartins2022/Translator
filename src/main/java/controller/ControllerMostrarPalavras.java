@@ -1,13 +1,28 @@
 package controller;
 
-        import model.Translator;
+import model.Translator;
+
+import java.sql.SQLException;
 
 public class ControllerMostrarPalavras
 {
-    Translator _translator;
-    public ControllerMostrarPalavras (Translator _translator)
+    Translator translator;
+    public ControllerMostrarPalavras ()
     {
-        this._translator=_translator;
+        translator = Translator.getInstance();
+    }
+
+    public String mostrarPalavras()
+    {
+        try
+        {
+            return translator.mostrarPalavras();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("ERRO: "+e.getMessage());
+        }
+        return null;
     }
 
 }

@@ -84,57 +84,70 @@ public class DBConnectionHandlerProj
 
     public ResultSet pesquisarPalavra(String pl) throws SQLException
     {
-        PreparedStatement ps = connection.prepareStatement("SELECT * FROM PALAVRA WHERE DENOMINACAO = '?'");
-        ps.setString(0,pl);
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM PALAVRA WHERE DENOMINACAO = ?");
+        ps.setString(1,pl);
         return ps.executeQuery();
     }
 
-    public ResultSet adicionarPalavra() throws SQLException
+    public ResultSet pesquisarPalavraID(String pl) throws SQLException
     {
-        return null;
-    }
-
-	public ResultSet getChefeProjetosNum() throws SQLException
-    {
-        Statement s = connection.createStatement();
-        return s.executeQuery("SELECT idChefe, COUNT(codProjeto) FROM Projeto GROUP BY (idChefe)");
-    }
-
-    public ResultSet getChefeProjetosNum(int chefe) throws SQLException
-    {
-        Statement s = connection.createStatement();
-        return s.executeQuery("SELECT idChefe, COUNT(codProjeto) FROM Projeto GROUP BY (idChefe) HAVING idChefe="+chefe);
-    }
-
-    public ResultSet getTotalHorasProjeto() throws SQLException
-    {
-        PreparedStatement ps = connection.prepareStatement("SELECT projetoEmpregado.codProjeto, SUM(projetoEmpregado.nHoras) FROM projetoEmpregado GROUP BY projetoEmpregado.codProjeto");
+        PreparedStatement ps = connection.prepareStatement("SELECT ID_PALAVRA FROM PALAVRA WHERE DENOMINACAO = ?");
+        ps.setString(1,pl);
         return ps.executeQuery();
     }
 
-    public ResultSet getTotalHorasProjeto(int p) throws SQLException
+    public ResultSet getLinguagens() throws SQLException
     {
-        PreparedStatement ps = connection.prepareStatement("SELECT projetoEmpregado.codProjeto, SUM(projetoEmpregado.nHoras) FROM projetoEmpregado WHERE projetoEmpregado.codProjeto = ? GROUP BY projetoEmpregado.codProjeto");
-        ps.setInt(1,p);
+        Statement s = connection.createStatement();
+        return s.executeQuery("SELECT * FROM LINGUA");
+    }
+
+    public ResultSet countLinguagens() throws SQLException
+    {
+        Statement s = connection.createStatement();
+        return s.executeQuery("SELECT COUNT(ID) FROM LINGUA");
+    }
+
+    public ResultSet adicionarPalavraTraduzida(int palavraID, int lingID, String palavra) throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO TRADUCAO VALUES (?,?,?)");
+        ps.setInt(1,lingID);
+        ps.setInt(2,palavraID);
+        ps.setString(3,palavra);
+
         return ps.executeQuery();
     }
 
-    public ResultSet getProjInfoHorasPagar() throws SQLException
+    public ResultSet adicionarPalavraPT(String s) throws SQLException
     {
-        Statement s = connection.createStatement();
-        return s.executeQuery("SELECT p1.codProjeto, (SELECT p2.id FROM projetoEmpregado p2 WHERE p2.nHoras = (SELECT MAX(p3.nHoras) FROM projetoEmpregado p3 WHERE p3.codProjeto = p1.codProjeto)), (SELECT p2.id FROM projetoEmpregado p2 WHERE p2.nHoras = (SELECT MIN(p3.nHoras) FROM projetoEmpregado p3 WHERE p3.codProjeto = p1.codProjeto)), MAX((SELECT empregado.salarioHora FROM empregado WHERE empregado.id = p1.id)*p1.nHoras), MIN((SELECT empregado.salarioHora FROM empregado WHERE empregado.id = p1.id)*p1.nHoras) FROM projetoEmpregado p1 GROUP BY p1.codProjeto");
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO PALAVRA (DENOMINACAO, LINGUA) VALUES (?,1)");
+        ps.setString(1,s);
+        return ps.executeQuery();
     }
+
     public ResultSet pesquisarLingua(Idioma idioma) throws SQLException
     {
         PreparedStatement ps = connection.prepareStatement("SELECT * FROM LINGUA WHERE DENOMINACAO = '?'");
-        ps.setString(0, idioma.toString());
+        ps.setString(1, idioma.toString());
         return ps.executeQuery();
     }
 
     public ResultSet adicionarLingua(Idioma idioma) throws SQLException
     {
         PreparedStatement ps = connection.prepareStatement("INSERT INTO LINGUA '?'");
-        ps.setString(0, idioma.toString());
+        ps.setString(1, idioma.toString());
+        return ps.executeQuery();
+    }
+
+    public ResultSet contarPalavras () throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("SELECT count(id) from palavra");
+        return ps.executeQuery();
+    }
+
+    public ResultSet mostrarPalavras () throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("SELECT * from traducao");
         return ps.executeQuery();
     }
 }

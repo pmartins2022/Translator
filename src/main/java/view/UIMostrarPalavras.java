@@ -1,23 +1,16 @@
 package view;
-
 import controller.ControllerMostrarPalavras;
-import model.Translator;
-
-import java.util.Scanner;
 
 public class UIMostrarPalavras
 {
-    Translator _translator;
-    Scanner lerTeclado = new Scanner (System.in);
     ControllerMostrarPalavras _controller;
 
-    public UIMostrarPalavras (Translator _translator)
+    public UIMostrarPalavras ()
     {
-        this._translator = _translator;
-        _controller = new ControllerMostrarPalavras (_translator);
+        _controller = new ControllerMostrarPalavras ();
     }
 
-    public int mostrarPalavras()
+    public String mostrarPalavras()
     {
         return _controller.mostrarPalavras();
     }

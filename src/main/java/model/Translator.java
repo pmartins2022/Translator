@@ -76,12 +76,95 @@ public class Translator
         {
             ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarPalavra(palavra);
 
-            return true;
+            return rs.next();
         }
         catch (SQLException e)
         {
             System.out.println("Problema na base de dados: "+e);
             return false;
         }
+    }
+
+    public int getPalavraID(String palavra)
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarPalavraID(palavra);
+
+            rs.next();
+
+            return rs.getInt(1);
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return -1;
+        }
+    }
+
+    public ResultSet getLinguagens()
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().getLinguagens();
+            return rs;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return null;
+        }
+    }
+
+    public int countLinguagens()
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().countLinguagens();
+            rs.next();
+            return rs.getInt(1);
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return 0;
+        }
+    }
+
+
+    public boolean adicionarPalavraTraduzida(int pid, int lid, String pl)
+    {
+        try
+        {
+            Translator.getInstance().getConexaoBD().adicionarPalavraTraduzida(pid, lid, pl);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            return false;
+        }
+    }
+
+    public boolean adicionarPalavraPT(String pt)
+    {
+        try
+        {
+            Translator.getInstance().getConexaoBD().adicionarPalavraPT(pt);
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("ERRO: "+e.getMessage());
+            return false;
+        }
+    }
+    public String mostrarPalavras () throws SQLException
+    {
+        return conexaoBD.mostrarPalavras ().getString (3);
+    }
+
+    public int contarPalavras () throws SQLException
+    {
+        return conexaoBD.contarPalavras ().getInt (1);
     }
 }
