@@ -19,7 +19,7 @@ public class Idioma {
 
     @Override
     public String toString() {
-        return "" + idioma;
+        return "" + nome;
     }
 
     @Override
