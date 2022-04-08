@@ -26,7 +26,17 @@ public class Translator
 
     public boolean validaIdioma (Idioma idioma){
         boolean flag = false;
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarLingua(idioma.getNome());
 
+            flag = true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            flag = false;
+        }
 
         return flag;
     }
@@ -34,6 +44,7 @@ public class Translator
     public boolean guardaIdioma (Idioma idioma){
         boolean flag = false;
         if(validaIdioma(idioma)){
+
 
         }
 
