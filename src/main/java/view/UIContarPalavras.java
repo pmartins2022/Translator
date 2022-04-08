@@ -1,6 +1,8 @@
 package view;
 import controller.ControllerContarPalavras;
 
+import java.sql.SQLException;
+
 public class UIContarPalavras
 {
     ControllerContarPalavras _controller;
@@ -10,7 +12,7 @@ public class UIContarPalavras
         _controller = new ControllerContarPalavras ();
     }
 
-    public int contarPalavras()
+    public int contarPalavras() throws SQLException
     {
         return _controller.contarPalavras();
     }
