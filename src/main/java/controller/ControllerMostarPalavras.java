@@ -1,8 +1,17 @@
 package controller;
 
-import model.Translator;
+        import model.Translator;
 
-public class ControllerMostarPalavras
+public class ControllerMostrarPalavras
 {
+    Translator _translator;
+    public ControllerMostrarPalavras (Translator _translator)
+    {
+        this._translator=_translator;
+    }
 
+    public int mostrarPalavras ()
+    {
+        return _translator.mostrarPalavras();
+    }
 }
