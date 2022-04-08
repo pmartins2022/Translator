@@ -1,15 +1,22 @@
 package model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Translator
 {
     public static Translator instance = null;
 
-    public Translator()
+    private DBConnectionHandlerProj conexaoBD;
+
+    public Translator(DBConnectionHandlerProj conexaoBD)
     {
         if (instance == null)
         {
             instance = this;
-        }
+        }else return;
+
+        this.conexaoBD = conexaoBD;
     }
 
     public Idioma criarIdioma (String nome){
@@ -33,10 +40,37 @@ public class Translator
         return flag;
     }
 
-    public Translator getInstance()
+    public static Translator getInstance()
     {
         return instance;
     }
 
+    public DBConnectionHandlerProj getConexaoBD()
+    {
+        return conexaoBD;
+    }
 
+    public void closeDBConnection()
+    {
+        String mensagem = conexaoBD.closeAll();
+        if (!mensagem.isEmpty())
+            System.out.println(mensagem);
+        System.out.println("\nTerminada a ligação à BD.");
+        conexaoBD.closeAll();
+    }
+
+    public boolean pesquisarPalavraBD(String palavra)
+    {
+        try
+        {
+            ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarPalavra(palavra);
+
+            return true;
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Problema na base de dados: "+e);
+            return false;
+        }
+    }
 }

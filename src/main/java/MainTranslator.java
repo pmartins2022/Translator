@@ -1,21 +1,18 @@
-package model;
+import model.DBConnectionHandlerProj;
+import model.Translator;
+import view.MenuTranslator;
 
-import java.awt.*;
 import java.sql.SQLException;
 
 public class MainTranslator
 {
-    public static DBConnectionHandlerProj conexaoBD = null;
-
     public static void main(String[] args)
     {
-        Translator tl = new Translator();
-        iniciarConexaoBD();
+        Translator tl = new Translator(iniciarConexaoBD());
         MenuTranslator.Iniciar();
-
     }
 
-    private static void iniciarConexaoBD()
+    private static DBConnectionHandlerProj iniciarConexaoBD()
     {
         try {
             String jdbcUrl = "jdbc:oracle:thin:@vsrvbd1.dei.isep.ipp.pt:1521/pdborcl";
@@ -23,24 +20,19 @@ public class MainTranslator
             String username = "UPSKILL_BD_TURMA2_10";
             String password = "qwerty";
 
-            conexaoBD = new DBConnectionHandlerProj(jdbcUrl, username, password);
+            DBConnectionHandlerProj conexaoBD = new DBConnectionHandlerProj(jdbcUrl, username, password);
 
             System.out.println("\nEstabelecer a ligação à BD...");
             conexaoBD.openConnection();
 
             System.out.println("\t... Ligação obtida.");
 
+            return conexaoBD;
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }
 
-    private static void closeDBConnection()
-    {
-        String mensagem = conexaoBD.closeAll();
-        if (!mensagem.isEmpty())
-            System.out.println(mensagem);
-        System.out.println("\nTerminada a ligação à BD.");
-        conexaoBD.closeAll();
+        return null;
     }
 }
