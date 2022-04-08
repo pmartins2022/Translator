@@ -12,9 +12,9 @@ public class UIMostrarPalavras
         _controller = new ControllerMostrarPalavras ();
     }
 
-    public String mostrarPalavras() throws SQLException
+    public void run() throws SQLException
     {
-        return _controller.mostrarPalavras();
+        System.out.println (_controller.mostrarPalavras ());
     }
 
 }

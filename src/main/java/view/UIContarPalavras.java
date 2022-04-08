@@ -12,9 +12,10 @@ public class UIContarPalavras
         _controller = new ControllerContarPalavras ();
     }
 
-    public int contarPalavras() throws SQLException
+    public void run () throws SQLException
     {
-        return _controller.contarPalavras();
+
+        System.out.printf ("\nSao %d palavras!", _controller.contarPalavras ());
     }
 
 }
