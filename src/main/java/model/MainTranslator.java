@@ -1,3 +1,6 @@
+package model;
+
+import java.awt.*;
 import java.sql.SQLException;
 
 public class MainTranslator
@@ -6,7 +9,10 @@ public class MainTranslator
 
     public static void main(String[] args)
     {
+        Translator tl = new Translator();
         iniciarConexaoBD();
+        MenuTranslator.Iniciar();
+
     }
 
     private static void iniciarConexaoBD()

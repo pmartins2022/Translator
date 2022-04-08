@@ -1,3 +1,5 @@
+package model;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,7 +81,19 @@ public class DBConnectionHandlerProj
         }
         return message.toString();
     }
-	
+
+    public ResultSet pesquisarPalavra(String pl) throws SQLException
+    {
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM PALAVRA WHERE DENOMINACAO = ?");
+        ps.setString(0,pl);
+        return ps.executeQuery();
+    }
+
+    public ResultSet adicionarPalavra() throws SQLException
+    {
+        return null;
+    }
+
 	public ResultSet getChefeProjetosNum() throws SQLException
     {
         Statement s = connection.createStatement();

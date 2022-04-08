@@ -1,3 +1,5 @@
+package model;
+
 import view.UI_AdicionarPalavra;
 
 import java.util.Scanner;
