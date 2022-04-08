@@ -14,6 +14,15 @@ public class ControllerContarPalavras
 
     public int contarPalavras () throws SQLException
     {
-        return translator.contarPalavras();
+        try
+        {
+            return translator.contarPalavras();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("ERRO: "+e.getMessage());
+        }
+
+        return -1;
     }
 }

@@ -14,7 +14,15 @@ public class ControllerMostrarPalavras
 
     public String mostrarPalavras() throws SQLException
     {
-        return translator.mostrarPalavras();
+        try
+        {
+            return translator.mostrarPalavras();
+        }
+        catch (SQLException e)
+        {
+            System.out.println("ERRO: "+e.getMessage());
+        }
+        return null;
     }
 
 }

@@ -76,7 +76,7 @@ public class Translator
         {
             ResultSet rs = Translator.getInstance().getConexaoBD().pesquisarPalavra(palavra);
 
-            return true;
+            return rs.next();
         }
         catch (SQLException e)
         {
@@ -93,7 +93,7 @@ public class Translator
 
             rs.next();
 
-            return rs.getInt(0);
+            return rs.getInt(1);
         }
         catch (SQLException e)
         {
@@ -120,9 +120,9 @@ public class Translator
     {
         try
         {
-            ResultSet rs = Translator.getInstance().getConexaoBD().getLinguagens();
+            ResultSet rs = Translator.getInstance().getConexaoBD().countLinguagens();
             rs.next();
-            return rs.getInt(0);
+            return rs.getInt(1);
         }
         catch (SQLException e)
         {
@@ -154,6 +154,7 @@ public class Translator
         }
         catch (SQLException e)
         {
+            System.out.println("ERRO: "+e.getMessage());
             return false;
         }
     }
