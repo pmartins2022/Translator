@@ -5,9 +5,16 @@ import model.Translator;
 
 public class ControllerCriarIdioma {
 
-    public void criarIdioma (String nome){
+    public Translator translator;
+    public ControllerCriarIdioma () {this.translator=translator;}
 
-        Translator.instance.criarIdioma(nome);
 
+    public boolean criarIdioma (String nome){
+        boolean flag = false;
+        Idioma idioma =Translator.instance.criarIdioma(nome);
+        translator.validaIdioma(idioma);
+        flag = true;
+        return flag;
     }
+
 }
