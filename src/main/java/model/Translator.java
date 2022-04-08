@@ -2,7 +2,7 @@ public class Translator
 {
     public Translator()
     {
-        
+
     }
 
     public Idioma criarIdioma (String nome){
