@@ -1,3 +1,5 @@
+package model;
+
 public class Idioma {
 
     String nome;
@@ -16,7 +18,7 @@ public class Idioma {
 
     @Override
     public String toString() {
-        return "Idioma: " + nome;
+        return "model.Idioma: " + nome;
     }
 
     @Override

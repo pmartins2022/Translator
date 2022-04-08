@@ -10,6 +10,8 @@ public class UI_AdicionarPalavra
 
         System.out.print("Escreva a palavra em Portugues: ");
 
-        
+        String palavra = sc.nextLine();
+
+
     }
 }
