@@ -1,6 +1,6 @@
 package view;
 
-import controller.Controller_AdicionarPalavra;
+import Controller.Controller_AdicionarPalavra;
 
 import java.util.Scanner;
 
